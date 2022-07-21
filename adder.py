@@ -56,11 +56,13 @@ async def rboot(_, m):
     try:
         await Alf.stop()
         await Alf.run()
+        end = datetime.datetime.now()
+        diff = (end-start).microseconds
         try:
-            await ok.edit("Successfully reloaded ! ✨💫")
+            await ok.edit(f"Successfully reloaded in <code>{diff}ms</code> ! ✨💫")
         except:
             await ok.delete()
-            await _.send_message("Successfully reloaded ! ✨💫")
+            await _.send_message(f"Successfully reloaded in <code>{diff}ms</code> ! ✨💫")
     except:
         try:
             await ok.edit("Reload failed ! Report @Timeisnotwaiting")
