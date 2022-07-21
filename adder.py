@@ -40,6 +40,8 @@ async def add(_, m):
             break
     a = str(a)
     await ok.edit(f"successfully added {a} users ! 🎉")
+    time.sleep(10)
+    await ok.delete()
 
 if YA == "YashuAlpha":
     Alf.run()
