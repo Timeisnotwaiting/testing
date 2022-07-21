@@ -36,7 +36,7 @@ async def add(_, m):
     a = str(a)
     await ok.edit(f"successfully added {a} users ! 🎉")
 
-if YA == "YashuAlpha"
+if YA == "YashuAlpha":
     Alf.run()
     print("Pyro adder started successfully 🇮🇳🎊🎉")
 else:
