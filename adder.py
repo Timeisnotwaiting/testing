@@ -51,7 +51,7 @@ async def add(_, m):
 async def rboot(_, m):
     await m.delete()
     await m.reply("reloading Dev-Op scrapper")
-    Alf.stop()
+    await Alf.stop()
 
 if YA == "YashuAlpha":
     Alf.run()
