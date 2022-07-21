@@ -50,8 +50,15 @@ async def add(_, m):
 @Alf.on_message(filters.command("reboot", "!"))
 async def rboot(_, m):
     await m.delete()
-    await m.reply("reloading Dev-Op scrapper")
+    ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 scrapper !")
     await Alf.stop()
+    await Alf.run()
+    try:
+        await ok.edit("Successfully reloaded ! ✨💫")
+    except:
+        await ok.delete()
+        await _.send_message("Successfully reloaded ! ✨💫")
+    
 
 if YA == "YashuAlpha":
     Alf.run()
