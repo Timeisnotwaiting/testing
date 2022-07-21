@@ -1,2 +1,2 @@
 pyrogram
-psycopg2
+tgcrypto
