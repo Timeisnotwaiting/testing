@@ -42,7 +42,7 @@ async def add(_, m):
             time.sleep(2)
         except:
             pass
-        if a == 50:
+        if a == 30:
             break
     a = str(a)
     await ok.edit(f"successfully added {a} users ! 🎉")
