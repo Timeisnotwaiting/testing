@@ -5,11 +5,13 @@ import time
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
+Reboot = False
+
 @Alf.on_message(filters.command("addall", "!"))
 async def add(_, m):
     l = m.chat.id
     try:
-        myid = await Alf.get_me().id
+        myid = await _.get_me()["id"]
         SUDO.append(str(myid))
     except:
         pass
@@ -49,15 +51,14 @@ async def add(_, m):
 
 @Alf.on_message(filters.command("reboot", "!"))
 async def rboot(_, m):
+    global Reboot
     await m.delete()
     ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 scrapper !")
-    await Alf.stop()
-    await Alf.run()
-    try:
-        await ok.edit("Successfully reloaded ! ✨💫")
-    except:
-        await ok.delete()
-        await _.send_message("Successfully reloaded ! ✨💫")
+    Reboot = True
+
+if Reboot:
+    Alf.stop()
+    Alf.run()
     
 
 if YA == "YashuAlpha":
