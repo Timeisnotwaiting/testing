@@ -1,6 +1,7 @@
 from pyrogram import Client as Alpha, filters
 from pyrogram.types import Message
 import config
+import time
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
@@ -27,6 +28,7 @@ async def add(_, m):
         try:
             await _.add_chat_members(l, lnk)
             a += 1
+            time.sleep(2)
         except:
             pass
         if a == 50:
