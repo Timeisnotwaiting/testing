@@ -10,7 +10,7 @@ async def add(_, m):
     l = m.chat.id
     try:
         myid = await _.get_me().id
-        SUDO.append(myid)
+        SUDO.append(str(myid))
     except:
         pass
     if not str(m.from_user.id) in SUDO:
