@@ -9,7 +9,7 @@ Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string 
 async def add(_, m):
     l = m.chat.id
     try:
-        myid = 5049680290
+        myid = await Alf.get_me().id
         SUDO.append(str(myid))
     except:
         pass
