@@ -25,7 +25,7 @@ async def add(_, m):
     a = 0
     for lnk in MEM:
         try:
-            await _.add_chat_members(l, lnk):
+            await _.add_chat_members(l, lnk)
             a += 1
         except:
             pass
