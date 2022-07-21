@@ -2,16 +2,15 @@ from pyrogram import Client as Alpha, filters
 from pyrogram.types import Message
 from config import *
 import time
+import datetime 
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
-
-Reboot = False
 
 @Alf.on_message(filters.command("addall", "!"))
 async def add(_, m):
     l = m.chat.id
     try:
-        myid = await _.get_me()["id"]
+        myid = await Alf.get_me().id
         SUDO.append(str(myid))
     except:
         pass
@@ -51,14 +50,25 @@ async def add(_, m):
 
 @Alf.on_message(filters.command("reboot", "!"))
 async def rboot(_, m):
-    global Reboot
+    start = datetime.datetime.now()
     await m.delete()
-    ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 scrapper !")
-    Reboot = True
+    ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 Scrapper !")
+    try:
+        await Alf.stop()
+        await Alf.run()
+        try:
+            await ok.edit("Successfully reloaded ! ✨💫")
+        except:
+            await ok.delete()
+            await _.send_message("Successfully reloaded ! ✨💫")
+    except:
+        try:
+            await ok.edit("Reload failed ! Report @Timeisnotwaiting")
+        except:
+            await ok.delete()
+            await _.send_message("Reload failed ! Report @Timeisnotwaiting")
 
-if Reboot:
-    Alf.stop()
-    Alf.run()
+
     
 
 if YA == "YashuAlpha":
