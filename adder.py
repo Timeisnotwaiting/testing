@@ -16,6 +16,10 @@ async def add(_, m):
     if not str(m.from_user.id) in SUDO:
         return
     try:
+        await m.delete()
+    except:
+        pass
+    try:
         id = int(m.text.split(None, 1)[1])
     except:
         return await _.send_message(m.chat.id, "provide only group id")
@@ -42,6 +46,12 @@ async def add(_, m):
     await ok.edit(f"successfully added {a} users ! 🎉")
     time.sleep(10)
     await ok.delete()
+
+@Alf.on_message(filters.command("reboot", "!"))
+async def rboot(_, m):
+    await m.delete()
+    await m.reply("reloading Dev-Op scrapper")
+    Alf.stop()
 
 if YA == "YashuAlpha":
     Alf.run()
