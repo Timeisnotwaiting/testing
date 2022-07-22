@@ -31,17 +31,18 @@ async def add(_, m):
         if (not mem.user.is_bot and not mem.user.is_deleted):
             MEM.append(mem.user.id)
            
-    startica = datetime.datetime.now()
+
     a = 0
+    b = 0
     for lnk in MEM:
         try:
             await _.add_chat_members(l, lnk)
             a += 1
             time.sleep(2)
         except:
+            b += 1
             pass
-        endica = datetime.datetime.now()
-        diffica = (endica - startica).microseconds / 1000
+
         if a == 50:
             break
 
