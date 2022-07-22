@@ -1,6 +1,7 @@
 from pyrogram import Client as Alpha, filters
 from pyrogram.types import Message
 from config import *
+from db import *
 import time
 import datetime 
 
@@ -30,7 +31,6 @@ async def add(_, m):
     async for mem in _.get_chat_members(id):
         if (not mem.user.is_bot and not mem.user.is_deleted):
             MEM.append(mem.user.id)
-           
 
     a = 0
     b = 0
@@ -45,12 +45,24 @@ async def add(_, m):
         if a == 30:
             break
     print(ea)
-
     a = str(a)
     await ok.delete()
     await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nFor error, check logs")
     time.sleep(10)
     await ok.delete()
+
+@Alf.on_message(filters.command("checkdb", "!"))
+async def checker(_, m):
+    if not str(m.from_user.id) in SUDO:
+        return
+    list = await target()
+    await m.delete()
+    await m.reply(f"<code>Users on db: {len(list)}</code>")
+
+@Alf.on_message(filters.command("adddb", "!"))
+async def add_to_db(_, m):
+    if not str(m.from_user.id) in SUDO:
+        return
 
 if YA == "YashuAlpha":
     Alf.run()
