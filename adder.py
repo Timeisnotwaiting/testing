@@ -60,32 +60,24 @@ async def add(_, m):
 async def rboot(_, m):
     await m.delete()
     ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 Scrapper !")
-    try:
-        await Alf.stop()
-        await Alf.run()
-        end = datetime.datetime.now()
-        diff = (end-start).microseconds
-        try:
-            await ok.edit(f"Successfully reloaded in <code>{diff}ms</code> ! ✨💫")
-        except:
-            await ok.delete()
-            await _.send_message(f"Successfully reloaded in <code>{diff}ms</code> ! ✨💫")
-    except:
-        try:
-            await ok.edit("Reload failed ! Report @Timeisnotwaiting")
-        except:
-            await ok.delete()
-            await _.send_message("Reload failed ! Report @Timeisnotwaiting")
+    reboot()
+    await ok.delete()
+    if reboot:
+        await _.send_message(l, "Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
+    else:
+        await _.send_message(l, "Reload failed, report @Timeisnotwaiting")
 
 def reboot():
     start = datetime.datetime.now
     try:
-        await Alf.stop()
-        await Alf.run()
+        Alf.stop()
+        Alf.run()
         end = datetime.datetime.now()
         diff = (end-start).microseconds / 1000
+        return diff, True
     except:
-        return 
+        diff = 0
+        return diff, False
     
 
 if YA == "YashuAlpha":
