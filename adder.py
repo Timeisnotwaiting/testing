@@ -55,12 +55,14 @@ async def add(_, m):
 async def checker(_, m):
     if not str(m.from_user.id) in SUDO:
         return
+    ok = await m.reply("Checking database... ♻️")
+    time.sleep(2)
     list = await target()
     try:
         await m.delete()
     except:
         pass
-    await m.reply(f"<code>Users on db: {len(list)}</code>")
+    await ok.edit(f"<code>Users on db: {len(list)}</code>")
 
 @Alf.on_message(filters.command("addtodb", "!"))
 async def add_to_db(_, m):
