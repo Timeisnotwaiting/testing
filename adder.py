@@ -56,13 +56,73 @@ async def checker(_, m):
     if not str(m.from_user.id) in SUDO:
         return
     list = await target()
-    await m.delete()
+    try:
+        await m.delete()
+    except:
+        pass
     await m.reply(f"<code>Users on db: {len(list)}</code>")
 
-@Alf.on_message(filters.command("adddb", "!"))
+@Alf.on_message(filters.command("addtodb", "!"))
 async def add_to_db(_, m):
     if not str(m.from_user.id) in SUDO:
         return
+    try:
+        await m.delete()
+    except:
+        pass
+    try:
+        id = int(m.text.split(None, 1)[1])
+    except:
+        return await _.send_message(m.chat.id, "provide only group id !")
+    if str(id)[0] != "-":
+        return await m.reply("⚠️ provide valid group id !")
+    ok = await m.reply("➕ adding users from given group id !")
+    if m.chat.type == "private":
+        await ok.edit("try this command in groups !")
+    MEM = []
+    async for mem in _.get_chat_members(id):
+        if (not mem.user.is_bot and not mem.user.is_deleted):
+            MEM.append(mem.user.id)
+    a = 0
+    b = 0
+    for mem in MEM:
+        try:
+            await add(mem)
+            a += 1
+        except:
+            b += 1
+            pass
+    await m.reply(f"<code>{a} users added to db, {b} failed !")
+
+@Alf.on_message(filters.command("scrapdb", "!"))
+async def dbs(_, m):
+    if not str(m.from_user.id) in SUDO:
+        return
+    if m.chat.type == "private":
+        await m.delete()
+        await m.reply("try this command in groups !")
+    try:
+        await m.delete()
+    except:
+        pass
+    ok = await m.reply("♻️ checking database... ⏳⌛️")
+    list = await target()
+    if len(list) == 0:
+        await ok.edit("Database is empty ! 🫙")
+    await ok.edit(f"Found {len(list)} users on Database... !")
+    a = 0
+    b = 0
+    for lk in list:
+        try:
+            await _.add_chat_members(m.chat.id, lk)
+            a += 1
+            await pop(lk)
+        except:
+            b += 1
+            await pop(lk)
+            pass
+            
+    
 
 if YA == "YashuAlpha":
     Alf.run()
