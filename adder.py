@@ -48,7 +48,7 @@ async def add(_, m):
 
     a = str(a)
     await ok.delete()
-    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {e}")
+    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {e if e else None}")
     time.sleep(10)
     await ok.delete()
 
