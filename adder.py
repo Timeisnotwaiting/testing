@@ -113,7 +113,7 @@ async def dbs(_, m):
     if len(list) == 0:
         await ok.edit("Database is empty ! 🫙")
         time.sleep(5)
-        await ok.delete()
+        return await ok.delete()
     await ok.edit(f"Found {len(list)} users on Database... !")
     time.sleep(2)
     a = 0
