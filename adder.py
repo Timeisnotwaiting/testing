@@ -121,6 +121,9 @@ async def dbs(_, m):
             b += 1
             await pop(lk)
             pass
+        if a == 20:
+            break
+    await ok.edit(f"Scrap status :- \n\nAdded : {a}\n\nFailed : {b}")
             
     
 
