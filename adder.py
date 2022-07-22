@@ -11,11 +11,6 @@ Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string 
 @Alf.on_message(filters.command("addall", "!"))
 async def add(_, m):
     l = m.chat.id
-    try:
-        myid = await Alf.get_me().id
-        SUDO.append(str(myid))
-    except:
-        pass
     if not str(m.from_user.id) in SUDO:
         return
     try:
