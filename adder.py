@@ -51,30 +51,6 @@ async def add(_, m):
     time.sleep(10)
     await ok.delete()
 
-@Alf.on_message(filters.command("reboot", "!"))
-async def rboot(_, m):
-    await m.delete()
-    ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 Scrapper !")
-    diff, bool = reboot()
-    await ok.delete()
-    if bool:
-        await m.reply(f"Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
-    else:
-        await m.reply("Reload failed, report @Timeisnotwaiting")
-
-def reboot():
-    start = datetime.datetime.now()
-    try:
-        Alf.stop()
-        Alf.run()
-        end = datetime.datetime.now()
-        diff = (end-start).microseconds / 1000
-        return diff, True
-    except:
-        diff = 0
-        return diff, False
-    
-
 if YA == "YashuAlpha":
     Alf.run()
     print("Pyro adder started successfully 🇮🇳🎊🎉")
