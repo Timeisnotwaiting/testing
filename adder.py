@@ -41,11 +41,10 @@ async def add(_, m):
             time.sleep(2)
         except Exception as ea:
             b += 1
-            print(ea)
             pass
-
-        if a == 50:
+        if a == 30:
             break
+    print(ea)
 
     a = str(a)
     await ok.delete()
