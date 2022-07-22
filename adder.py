@@ -41,6 +41,7 @@ async def add(_, m):
             time.sleep(2)
         except Exception as ea:
             b += 1
+            print(ea)
             pass
 
         if a == 50:
@@ -48,7 +49,7 @@ async def add(_, m):
 
     a = str(a)
     await ok.delete()
-    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {ea if ea else None}")
+    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nFor error, check logs")
     time.sleep(10)
     await ok.delete()
 
