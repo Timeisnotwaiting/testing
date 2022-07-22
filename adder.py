@@ -100,16 +100,20 @@ async def dbs(_, m):
         return
     if m.chat.type == "private":
         await m.delete()
-        await m.reply("try this command in groups !")
+        return await m.reply("try this command in groups !")
     try:
         await m.delete()
     except:
         pass
     ok = await m.reply("♻️ checking database... ⏳⌛️")
+    time.sleep(2)
     list = await target()
     if len(list) == 0:
         await ok.edit("Database is empty ! 🫙")
+        time.sleep(5)
+        await ok.delete()
     await ok.edit(f"Found {len(list)} users on Database... !")
+    time.sleep(2)
     a = 0
     b = 0
     for lk in list:
@@ -121,6 +125,7 @@ async def dbs(_, m):
             b += 1
             await pop(lk)
             pass
+        time.sleep(2)
         if a == 20:
             break
     await ok.edit(f"Scrap status :- \n\nAdded : {a}\n\nFailed : {b}")
