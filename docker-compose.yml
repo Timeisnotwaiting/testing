@@ -6,5 +6,5 @@ services:
       - API_HASH=${API_HASH}
       - API_ID=${API_ID}
       - STRING_SESSION=${STRING_SESSION}
-      - PASSWORD =${PASSWORD}
-      - SUDO_USERS =${SUDO_USERS}
+      - PASSWORD=${PASSWORD}
+      - SUDO_USERS=${SUDO_USERS}
