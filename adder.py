@@ -37,6 +37,7 @@ async def add(_, m):
             MEM.append(mem.user.id)
             if len(MEM) == 30:
                 break
+    startica = datetime.datetime.now()
     a = 0
     for lnk in MEM:
         try:
@@ -45,6 +46,10 @@ async def add(_, m):
             time.sleep(2)
         except:
             pass
+        endica = datetime.datetime.now()
+        diffica = (endica - startica).microseconds / 1000
+        if diffica >= 120:
+            break
 
     a = str(a)
     await ok.edit(f"successfully added {a} users ! 🎉")
