@@ -58,7 +58,6 @@ async def add(_, m):
 
 @Alf.on_message(filters.command("reboot", "!"))
 async def rboot(_, m):
-    start = datetime.datetime.now()
     await m.delete()
     ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 Scrapper !")
     try:
@@ -78,7 +77,15 @@ async def rboot(_, m):
             await ok.delete()
             await _.send_message("Reload failed ! Report @Timeisnotwaiting")
 
-
+def reboot():
+    start = datetime.datetime.now
+    try:
+        await Alf.stop()
+        await Alf.run()
+        end = datetime.datetime.now()
+        diff = (end-start).microseconds / 1000
+    except:
+        return 
     
 
 if YA == "YashuAlpha":
