@@ -22,8 +22,8 @@ async def add(_, m):
     except:
         return await _.send_message(m.chat.id, "provide only group id !")
     if str(id)[0] != "-":
-        return await _.send_message(l, "⚠️ provide valid group id !")
-    ok = await _.send_message(l, "➕ adding users from given group id !")
+        return await m.reply(l, "⚠️ provide valid group id !")
+    ok = await m.reply(l, "➕ adding users from given group id !")
     if m.chat.type == "private":
         await ok.edit("try this command in groups !")
     MEM = []
@@ -48,7 +48,7 @@ async def add(_, m):
 
     a = str(a)
     await ok.delete()
-    await _.send_message(l, f"Scrap stats :-\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {e}")
+    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {e}")
     time.sleep(10)
     await ok.delete()
 
