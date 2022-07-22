@@ -78,7 +78,7 @@ async def add_to_db(_, m):
         return await _.send_message(m.chat.id, "provide only group id !")
     if str(id)[0] != "-":
         return await m.reply("⚠️ provide valid group id !")
-    ok = await m.reply("➕ adding users from given group id !")
+    ok = await m.reply("➕ adding users to database from given group id !")
     if m.chat.type == "private":
         await ok.edit("try this command in groups !")
     MEM = []
