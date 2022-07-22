@@ -63,9 +63,9 @@ async def rboot(_, m):
     reboot()
     await ok.delete()
     if reboot():
-        await _.send_message(l, "Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
+        await m.reply("Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
     else:
-        await _.send_message(l, "Reload failed, report @Timeisnotwaiting")
+        await m.reply("Reload failed, report @Timeisnotwaiting")
 
 def reboot():
     start = datetime.datetime.now()
