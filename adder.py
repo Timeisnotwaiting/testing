@@ -63,7 +63,7 @@ async def rboot(_, m):
     reboot()
     await ok.delete()
     if reboot():
-        await m.reply("Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
+        await m.reply(f"Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
     else:
         await m.reply("Reload failed, report @Timeisnotwaiting")
 
