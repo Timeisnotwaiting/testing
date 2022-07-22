@@ -68,7 +68,7 @@ async def rboot(_, m):
         await _.send_message(l, "Reload failed, report @Timeisnotwaiting")
 
 def reboot():
-    start = datetime.datetime.now
+    start = datetime.datetime.now()
     try:
         Alf.stop()
         Alf.run()
