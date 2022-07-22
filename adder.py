@@ -42,7 +42,7 @@ async def add(_, m):
             pass
         endica = datetime.datetime.now()
         diffica = (endica - startica).microseconds / 1000
-        if diffica >= 120:
+        if a == 50:
             break
 
     a = str(a)
