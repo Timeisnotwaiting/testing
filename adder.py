@@ -39,7 +39,7 @@ async def add(_, m):
             await _.add_chat_members(l, lnk)
             a += 1
             time.sleep(2)
-        except Exception as e:
+        except Exception as ea:
             b += 1
             pass
 
@@ -48,7 +48,7 @@ async def add(_, m):
 
     a = str(a)
     await ok.delete()
-    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {e if e else None}")
+    await _.send_message(l, f"Scrap status :-\n\nList appended :- {len(MEM)}\n\nAdded :- {a}\nFailed :- {b}\n\nReason :- {ea if ea else None}")
     time.sleep(10)
     await ok.delete()
 
