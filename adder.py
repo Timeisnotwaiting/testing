@@ -62,7 +62,7 @@ async def rboot(_, m):
     ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 Scrapper !")
     reboot()
     await ok.delete()
-    if reboot:
+    if reboot():
         await _.send_message(l, "Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
     else:
         await _.send_message(l, "Reload failed, report @Timeisnotwaiting")
