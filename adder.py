@@ -60,9 +60,9 @@ async def add(_, m):
 async def rboot(_, m):
     await m.delete()
     ok = await m.reply("Reloading Dev-Op 🇮🇳🎊🎉 Scrapper !")
-    reboot()
+    diff, bool = reboot()
     await ok.delete()
-    if reboot():
+    if bool:
         await m.reply(f"Successfully Reloaded in <code>{diff}</code> sec ! ✨💫")
     else:
         await m.reply("Reload failed, report @Timeisnotwaiting")
