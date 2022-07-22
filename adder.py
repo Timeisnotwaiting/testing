@@ -27,14 +27,16 @@ async def add(_, m):
     except:
         return await _.send_message(m.chat.id, "provide only group id !")
     if str(id)[0] != "-":
-        return await _.send_message(l, "provide valid group id !")
-    ok = await _.send_message(l, "adding users from given group id !")
+        return await _.send_message(l, "⚠️ provide valid group id !")
+    ok = await _.send_message(l, "➕ adding users from given group id !")
     if m.chat.type == "private":
-        await ok.edit("try this command in groups")
+        await ok.edit("try this command in groups !")
     MEM = []
     async for mem in _.get_chat_members(id):
         if (not mem.user.is_bot and not mem.user.is_deleted):
             MEM.append(mem.user.id)
+            if len(MEM) == 30:
+                break
     a = 0
     for lnk in MEM:
         try:
@@ -43,8 +45,7 @@ async def add(_, m):
             time.sleep(2)
         except:
             pass
-        if a == 30:
-            break
+
     a = str(a)
     await ok.edit(f"successfully added {a} users ! 🎉")
     time.sleep(10)
