@@ -22,8 +22,8 @@ async def add(_, m):
     except:
         return await _.send_message(m.chat.id, "provide only group id !")
     if str(id)[0] != "-":
-        return await m.reply(l, "⚠️ provide valid group id !")
-    ok = await m.reply(l, "➕ adding users from given group id !")
+        return await m.reply("⚠️ provide valid group id !")
+    ok = await m.reply("➕ adding users from given group id !")
     if m.chat.type == "private":
         await ok.edit("try this command in groups !")
     MEM = []
