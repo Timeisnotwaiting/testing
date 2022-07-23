@@ -13,8 +13,9 @@ Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string 
 async def add(_, m):
     global SUDO
     l = m.chat.id
-    me = (await _.get_me()).id
-    SUDO.append(me)
+    me = (await _.get_me())
+    myid = me["id"]
+    SUDO.append(myid)
     if not str(m.from_user.id) in SUDO:
         return
     try:
