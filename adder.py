@@ -82,7 +82,7 @@ async def add_to_db(_, m):
     if m.chat.type == "private":
         await ok.edit("try this command in groups !")
     MEM = []
-    async for mem in _.get_chat_members(id):
+    async for mem in _.iter_chat_members(id):
         if (not mem.user.is_bot and not mem.user.is_deleted):
             MEM.append(mem.user.id)
     a = 0
