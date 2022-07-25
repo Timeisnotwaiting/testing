@@ -1,1 +1,1 @@
-worker: python3 adder.py
+worker: python3 spammer.py
