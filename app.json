@@ -26,10 +26,6 @@
         "PASSWORD": {
             "description": "GET IT FROM @Timeisnotwaiting",
             "required": true
-        },
-        "MONGO_DB_URL": {
-            "description": "Get from mongodb.com",
-            "required": true
         }
     },
     "formation": {
