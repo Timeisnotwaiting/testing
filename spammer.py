@@ -10,6 +10,8 @@ Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string 
 async def spammer(_, m):
     if not m.from_user.id in SUDO:
         return
+    if len(m.command) == 1:
+        return await m.reply("omfoo")
     hehe = m.text.split(None, 3)
     counter = hehe[1]
     txt = hehe[3]
