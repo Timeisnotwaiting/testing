@@ -6,7 +6,7 @@ import datetime
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
-@Alf.on_message(filters.command("spam", "!") & ~filters.edited)
+@Alf.on_message(filters.command("spam", "!"))
 async def spammer(_, m):
     if not m.from_user.id in SUDO:
         return
