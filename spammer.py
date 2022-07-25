@@ -14,6 +14,6 @@ Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string 
 
 if YA == "YashuAlpha":
     Alf.run()
-    print("Pyro adder started successfully 🇮🇳🎊🎉")
+    print("Pyro spammer started successfully 🇮🇳🎊🎉")
 else:
     print("password you entered is wrong")
