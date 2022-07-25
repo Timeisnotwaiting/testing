@@ -1,7 +1,6 @@
 from pyrogram import Client as Alpha, filters
 from pyrogram.types import Message
 from config import *
-from db import *
 import time
 import datetime 
 
