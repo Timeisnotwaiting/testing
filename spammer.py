@@ -2,7 +2,7 @@ from pyrogram import Client as Alpha, filters
 from pyrogram.types import Message
 from config import *
 import time
-import datetime 
+import asyncio
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
@@ -42,3 +42,7 @@ async def initiate_bot():
     except:
         Alf.start()
     return print(f"@{uname if uname else None} started successfully... ")
+
+loop = asyncio.get_event_loop()
+
+loop.run_until_complete(initiate_bot())
