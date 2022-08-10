@@ -6,6 +6,8 @@ import asyncio
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
+loop = asyncio.get_event_loop()
+
 level = None
 
 @Alf.on_message(filters.command("spam", "!"))
@@ -44,6 +46,5 @@ async def initiate_bot():
         await Alf.start()
     return print(f"@{uname if uname else None} started successfully... ")
 
-loop = asyncio.get_event_loop()
 
 loop.run_until_complete(initiate_bot())
