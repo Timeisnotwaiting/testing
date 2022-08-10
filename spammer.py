@@ -30,9 +30,15 @@ async def spammer(_, m):
         await _.send_message(m.chat.id, txt)
         time.sleep(int(delay))
 
-
-if YA == "YashuAlpha":
-    Alf.run()
-    print("Pyro spammer started successfully 🇮🇳🎊🎉")
-else:
-    print("password you entered is wrong")
+async def initiate_bot():
+    global level
+    if not YA == "YashuAlpha":
+        return print("Password wrong !")
+    try:
+        Alf.start()
+        me = Alf.get_me()
+        level = me.id
+        uname = me.username
+    except:
+        Alf.start()
+    return print(f"@{uname if uname else None} started successfully... ")
