@@ -35,17 +35,12 @@ async def spamend(_, m):
         return
 
 
-def initiate_bot():
-    global level
-    if not YA == "YashuAlpha":
-        return print("Password wrong !")
-    try:
-        Alf.start()
-        me = Alf.get_me()
-        level = me.id
-        uname = me.username
-    except:
-        Alf.start()
-    return print(f"@{uname if uname else None} started successfully... ")
+if not YA == "YashuAlpha":
+    return print("Password wrong !")
+else:
+    Alf.start()
+    me = Alf.get_me()
+    level = me.id
+    uname = me.username
+    print(f"@{uname if uname else None} started successfully... ")
 
-initiate_bot()
