@@ -18,7 +18,7 @@ async def spammer(_, m):
     delay = hehe[2]
     for alpha in range(0, int(counter)):
         await _.send_message(m.chat.id, txt)
-        time.sleep(delay)
+        time.sleep(int(delay))
 
 
 if YA == "YashuAlpha":
