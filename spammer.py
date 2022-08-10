@@ -26,6 +26,11 @@ async def spammer(_, m):
         await _.send_message(m.chat.id, txt)
         time.sleep(int(delay))
 
+@Alf.on_message(filters.command("endspam", "!"))
+async def spamend(_, m):
+    if not str(m.from_user.id) in SUDO:
+        return
+
 async def initiate_bot():
     global level
     if not YA == "YashuAlpha":
