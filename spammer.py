@@ -36,7 +36,7 @@ async def spamend(_, m):
 
 
 if not YA == "YashuAlpha":
-    return print("Password wrong !")
+    print("Password wrong !")
 else:
     Alf.start()
     me = Alf.get_me()
