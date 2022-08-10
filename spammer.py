@@ -31,12 +31,12 @@ async def initiate_bot():
     if not YA == "YashuAlpha":
         return print("Password wrong !")
     try:
-        Alf.start()
-        me = Alf.get_me()
+        await Alf.start()
+        me = await Alf.get_me()
         level = me.id
         uname = me.username
     except:
-        Alf.start()
+        await Alf.start()
     return print(f"@{uname if uname else None} started successfully... ")
 
 loop = asyncio.get_event_loop()
