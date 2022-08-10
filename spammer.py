@@ -1,11 +1,9 @@
-from pyrogram import Client as Alpha, filters
+from pyrogram import Client as Alpha, filters, idle
 from pyrogram.types import Message
 from config import *
 import time
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
-
-level = None
 
 @Alf.on_message(filters.command("spam", "!"))
 async def spammer(_, m):
@@ -42,5 +40,6 @@ else:
     me = Alf.get_me()
     level = me.id
     uname = me.username
+    idle()
     print(f"@{uname if uname else None} started successfully... ")
 
