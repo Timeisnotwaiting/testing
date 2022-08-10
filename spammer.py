@@ -8,7 +8,7 @@ Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string 
 
 @Alf.on_message(filters.command("spam", "!"))
 async def spammer(_, m):
-    if not m.from_user.id in SUDO:
+    if not str(m.from_user.id) in SUDO:
         return
     if len(m.command) == 1:
         return await m.reply("omfoo")
