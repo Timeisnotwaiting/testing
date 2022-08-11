@@ -31,6 +31,7 @@ async def spammer(_, m):
     for alpha in range(0, int(counter)):
         if stop:
             stop = False
+            spam = False
             return
         await _.send_message(m.chat.id, txt)
         time.sleep(int(delay))
@@ -48,12 +49,10 @@ async def spamend(_, m):
     if not str(m.from_user.id) in SUDO:
         return
     if not spam:
-        return await eor(_, m, "No process running.....")
-    ok = await eor(_, m, "terminating process....")
+        return await eor(_, m, "<code>No process running.....</code>")
+    ok = await eor(_, m, f"<code>terminating process....</code>")
     stop = True
-    time.sleep(5)
-    await ok.delete()
-
+    
 
 if not YA == "YashuAlpha":
     print("Password wrong !")
