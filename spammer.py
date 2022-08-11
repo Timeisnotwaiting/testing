@@ -17,13 +17,14 @@ async def spammer(_, m):
         pass
     if not str(m.from_user.id) in SUDO:
         return
-    if len(m.command) != 4:
+    if len(m.command) < 4:
         return await eor(_, m, f"<code>Usage: !spam < count > < delay > < text ></code>")
     hehe = m.text.split(None, 3)
-    counter = hehe[1]
-    txt = hehe[3]
-    delay = hehe[2]
-    if (not int(delay).isnumeric() and not int(counter).isnumeric()):
+    try:
+        counter = int(hehe[1])
+        txt = hehe[3]
+        delay = int(hehe[2])
+    except:
         return await eor(_, m, f"<code>Usage: !spam < count > < delay > < text ></code>")
     for alpha in range(0, int(counter)):
         if stop:
