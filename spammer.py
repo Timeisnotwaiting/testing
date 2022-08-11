@@ -9,6 +9,7 @@ stop = False
 
 @Alf.on_message(filters.command("spam", "!"))
 async def spammer(_, m):
+    global stop
     try:
         SUDO.append(str(level))
     except:
