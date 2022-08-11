@@ -24,10 +24,10 @@ async def spammer(_, m):
     delay = hehe[2]
     for alpha in range(0, int(counter)):
         if stop:
+            stop = False
             return
         await _.send_message(m.chat.id, txt)
         time.sleep(int(delay))
-    stop = False
 
 @Alf.on_message(filters.command("endspam", "!"))
 async def spamend(_, m):
