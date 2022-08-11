@@ -7,9 +7,11 @@ from helper import eor
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
 stop = False
+spam = False
 
 @Alf.on_message(filters.command("spam", "!"))
 async def spammer(_, m):
+    global spam
     global stop
     try:
         SUDO.append(str(level))
@@ -32,9 +34,12 @@ async def spammer(_, m):
             return
         await _.send_message(m.chat.id, txt)
         time.sleep(int(delay))
+        spam = True
+    spam = False
 
 @Alf.on_message(filters.command("endspam", "!"))
 async def spamend(_, m):
+    global spam
     global stop
     try:
         SUDO.append(str(level))
@@ -42,6 +47,8 @@ async def spamend(_, m):
         pass
     if not str(m.from_user.id) in SUDO:
         return
+    if not spam:
+        return await eor(_, m, "No process running.....")
     ok = await eor(_, m, "terminating process....")
     stop = True
     time.sleep(5)
