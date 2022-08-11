@@ -2,6 +2,7 @@ from pyrogram import Client as Alpha, filters, idle
 from pyrogram.types import Message
 from config import *
 import time
+from helper import eor
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
@@ -16,7 +17,7 @@ async def spammer(_, m):
         pass
     if not str(m.from_user.id) in SUDO:
         return
-    if len(m.command) == 1:
+    if len(m.command) != 4:
         return await m.reply(f"<code>Usage: !spam < count > < delay > < text ></code>")
     hehe = m.text.split(None, 3)
     counter = hehe[1]
@@ -38,7 +39,10 @@ async def spamend(_, m):
         pass
     if not str(m.from_user.id) in SUDO:
         return
+    ok = await eor(_, m, "terminating process....")
     stop = True
+    time.sleep(5)
+    await ok.delete()
 
 
 if not YA == "YashuAlpha":
