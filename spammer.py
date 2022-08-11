@@ -14,7 +14,7 @@ async def spammer(_, m):
     if not str(m.from_user.id) in SUDO:
         return
     if len(m.command) == 1:
-        return await m.reply("Usage: !spam < count > < delay > < text >")
+        return await m.reply(f"<code>Usage: !spam < count > < delay > < text ></code>")
     hehe = m.text.split(None, 3)
     counter = hehe[1]
     txt = hehe[3]
