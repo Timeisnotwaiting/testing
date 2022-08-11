@@ -50,8 +50,9 @@ async def spamend(_, m):
         return
     if not spam:
         return await eor(_, m, "<code>No process running.....</code>")
-    ok = await eor(_, m, f"<code>terminating process....</code>")
+    await eor(_, m, f"<code>terminating process....</code>")
     stop = True
+    await eor(_, m, f"<code>Spam ended....</code>")
     
 
 if not YA == "YashuAlpha":
