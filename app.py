@@ -1,4 +1,4 @@
-{
+"""{
   "name": "String Generator by Alpha",
   "description": "Telegram bot to generate Pyrogram & Telethon StringSession Made By Alpha",
   "logo": "https://te.legra.ph/file/ac72a0208034b15f04c18.jpg",
@@ -54,3 +54,4 @@
     }
   }
 }
+"""
