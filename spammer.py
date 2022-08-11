@@ -5,6 +5,8 @@ import time
 
 Alf = Alpha("yashu-alpha", api_id = API_ID, api_hash = API_HASH, session_string = STRING_SESSION)
 
+stop = False
+
 @Alf.on_message(filters.command("spam", "!"))
 async def spammer(_, m):
     try:
@@ -20,17 +22,22 @@ async def spammer(_, m):
     txt = hehe[3]
     delay = hehe[2]
     for alpha in range(0, int(counter)):
+        if stop:
+            return
         await _.send_message(m.chat.id, txt)
         time.sleep(int(delay))
+    stop = False
 
 @Alf.on_message(filters.command("endspam", "!"))
 async def spamend(_, m):
+    global stop
     try:
         SUDO.append(str(level))
     except:
         pass
     if not str(m.from_user.id) in SUDO:
         return
+    stop = True
 
 
 if not YA == "YashuAlpha":
